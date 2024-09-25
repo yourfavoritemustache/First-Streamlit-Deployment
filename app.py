@@ -35,6 +35,16 @@ def pag_layout(username):
         
     pg = st.navigation(page_dict)
     pg.run()
+    
+def login_page_layout():
+    public = st.Page(
+        "pages/public.py",
+        title="public",
+        icon=":material/person_add:",
+    )
+    page_dict = {'Public':public}
+    pg = st.navigation(page_dict)
+    pg.run()
 
 def hash_passwords(passwords):
     ## Function to hash passwords
@@ -74,6 +84,7 @@ def main():
 
 if __name__ == '__main__':
     st.set_page_config(layout='wide')
+    login_page_layout()
     authenticator, name, authentication_status, username = login()
     # Handle authentication status
     
