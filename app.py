@@ -7,9 +7,9 @@ def hash_passwords(passwords):
 
 def login():
     # User credentials
-    names = ['Astengoli', 'Guest']
-    usernames = st.secrets['usernames']
-    passwords = st.secrets['passwords']  # In practice, use hashed passwords
+    names = ['Simone Astolfi', 'Denise Mengoli','Guest']
+    usernames = ['yourfavoritemustache', 'paperina','guest']
+    passwords = ['Quest@e!unapsw!', 'Quest@e!unapsw!','guest']  # In practice, use hashed passwords
 
     # Hash passwords
     hashed_passwords = hash_passwords(passwords)
@@ -43,7 +43,7 @@ def access_type(username):
 def main():
     st.title('Main Page')
     st.write(st.secrets['passwords'])
-    st.secrets['passwords']
+    print(type(st.secrets['passwords']))
 
 def guest_page():
     st.title('Gues Page')
