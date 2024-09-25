@@ -1,7 +1,7 @@
 import streamlit as st
 
 
-if st.session_state.authentication_status==False:
+if 'authentication_status' not in st.session_state():
     st.switch_page("app.py")
 else:
     st.title('Main Page')
