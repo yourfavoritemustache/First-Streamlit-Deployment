@@ -42,11 +42,11 @@ def access_type(username):
 
 def main():
     st.title('Main Page')
-    st.write('Test')
+    st.write(st.secrets['passwords'])
 
 def guest_page():
     st.title('Gues Page')
-    st.write('Test')
+    st.write(st.secrets['passwords'])
 
 if __name__ == '__main__':
     st.set_page_config(layout='wide')
