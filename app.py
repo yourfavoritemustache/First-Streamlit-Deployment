@@ -1,6 +1,41 @@
 import streamlit as st
 import streamlit_authenticator as stauth
 
+def pag_layout(username):
+    primary = st.Page(
+        "pages/primary.py",
+        title="Primary",
+        icon=":material/person_add:",
+        # default=(username != "Guest"),
+    )
+    secondary = st.Page(
+        "pages/secondary.py",
+        title="Secondary",
+        icon=":material/person_add:",
+    )
+    third = st.Page(
+        "pages/third.py",
+        title="Third",
+        icon=":material/person_add:",
+    )
+    public = st.Page(
+        "pages/public.py",
+        title="public",
+        icon=":material/person_add:",
+    )
+
+    private_pages = [primary,secondary]
+    guest_pages = [third]
+
+    page_dict = {}
+    if username == 'guest':
+        page_dict["Guest"] = guest_pages
+    else:
+        page_dict['Admin'] = private_pages
+        
+    pg = st.navigation(page_dict)
+    pg.run()
+
 def hash_passwords(passwords):
     ## Function to hash passwords
     return stauth.Hasher(passwords).generate()
@@ -29,21 +64,20 @@ def login():
         cookie_expiry_days=1
     )
     # Implement login widget
-    name, authentication_status, username = authenticator.login('main', 'Login')
+    name, authentication_status, username = authenticator.login('main', 'Login, for Guest access use "guest" for username and password')
     
     return authenticator, name, authentication_status, username
 
 
 def main():
     st.title('Login page')
-    st.write(st.session_state(authentication_status))
 
 if __name__ == '__main__':
     st.set_page_config(layout='wide')
     authenticator, name, authentication_status, username = login()
     # Handle authentication status
+    pag_layout(username)
     if authentication_status:
-        st.switch_page("pages/primary.py")
         authenticator.logout('Log out')
     elif authentication_status == False:
         st.error('Username or password is incorrect')
