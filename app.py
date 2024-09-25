@@ -1,12 +1,6 @@
 import streamlit as st
 import streamlit_authenticator as stauth
 
-st.set_page_config(
-    layout='wide',
-    page_title='Personal Finance Dashboard',
-    page_icon='money_bag',
-)
-
 def hash_passwords(passwords):
     ## Function to hash passwords
     return stauth.Hasher(passwords).generate()
