@@ -50,7 +50,7 @@ def guest_page():
     st.secrets['passwords']
 
 if __name__ == '__main__':
-    st.set_page_config(layout='wide')
+    st.set_page_config(layout='wide',initial_sidebar_state='expanded')
     authenticator, name, authentication_status, username = login()
     access_level = username
     # Handle authentication status
