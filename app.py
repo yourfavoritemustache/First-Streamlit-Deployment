@@ -11,12 +11,12 @@ st.set_page_config(
 p1 = st.Page(
     'Pages/primary.py',
     title = 'Primary',
-    icon=':material/currency_exchange'
+    # icon=':material/currency_exchange'
 )
 p2 = st.Page(
     'Pages/secondary.py',
     title = 'secondary',
-    icon=':material/account_balance',
+    # icon=':material/account_balance',
 )
 p3 = st.Page(
     'Pages/third.py',
