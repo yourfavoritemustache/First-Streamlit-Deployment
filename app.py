@@ -18,8 +18,7 @@ def login():
     credentials = {
         'usernames': {
             usernames[0]: {'name': names[0], 'password': hashed_passwords[0]},
-            usernames[1]: {'name': names[1], 'password': hashed_passwords[1]},
-            usernames[2]: {'name': names[2], 'password': hashed_passwords[2]}
+            usernames[1]: {'name': names[1], 'password': hashed_passwords[1]}
         }
     }
     # Create authenticator object
