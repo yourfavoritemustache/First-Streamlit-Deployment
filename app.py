@@ -42,7 +42,7 @@ def access_type(username):
 def main():
     st.title('Main Page')
     st.write(st.secrets['passwords'])
-    print(type(st.secrets['passwords']))
+    type(st.secrets['passwords'])
 
 def guest_page():
     st.title('Gues Page')
