@@ -24,8 +24,8 @@ def pag_layout(username):
         icon=":material/person_add:",
     )
 
-    private_pages = [primary,secondary]
-    guest_pages = [third]
+    private_pages = [primary,secondary,public]
+    guest_pages = [third,public]
 
     page_dict = {}
     if username == 'guest':
