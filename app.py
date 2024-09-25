@@ -7,9 +7,9 @@ def hash_passwords(passwords):
 
 def login():
     # User credentials
-    names = ['Simone Astolfi', 'Denise Mengoli','Guest']
-    usernames = ['yourfavoritemustache', 'paperina','guest']
-    passwords = ['Quest@e!unapsw!', 'Quest@e!unapsw!','guest']  # In practice, use hashed passwords
+    names = ['Astengoli', 'Guest']
+    usernames = st.secrets['usernames']
+    passwords = st.secrets['passwords']  # In practice, use hashed passwords
 
     # Hash passwords
     hashed_passwords = hash_passwords(passwords)
