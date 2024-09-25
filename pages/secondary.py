@@ -1,4 +1,7 @@
 import streamlit as st
 
-st.title('Secondary page')
-st.write('This is a public page that do not require a login')
+if (st.session_state.authentication_status == None) or (st.session_state.authentication_status == False):
+    st.switch_page("app.py")
+else:
+    st.title('Secondary Page')
+    st.write('Private page bitch')
