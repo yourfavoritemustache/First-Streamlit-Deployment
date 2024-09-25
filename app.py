@@ -26,9 +26,12 @@ def pag_layout(username):
 
     private_pages = [primary,secondary,public]
     guest_pages = [third,public]
+    public = [public]
 
     page_dict = {}
-    if username == 'guest':
+    if username == None:
+        page_dict["Public"] = public
+    elif username == 'guest':
         page_dict["Guest"] = guest_pages
     else:
         page_dict['Admin'] = private_pages
@@ -84,7 +87,8 @@ def main():
 
 if __name__ == '__main__':
     st.set_page_config(layout='wide')
-    login_page_layout()
+    username = None
+    pag_layout(username)
     authenticator, name, authentication_status, username = login()
     # Handle authentication status
     
