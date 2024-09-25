@@ -43,7 +43,7 @@ if __name__ == '__main__':
     authenticator, name, authentication_status, username = login()
     # Handle authentication status
     if authentication_status:
-        main()
+        st.switch_page("Pages/primary.py")
         authenticator.logout('Log out')
     elif authentication_status == False:
         st.error('Username or password is incorrect')
