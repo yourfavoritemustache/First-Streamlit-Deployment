@@ -13,4 +13,3 @@ if (st.session_state.authentication_status == None) or (st.session_state.authent
 else:
     st.title('Main Page')
     st.write('Private page bitch')
-    st.session_state.authentication_status

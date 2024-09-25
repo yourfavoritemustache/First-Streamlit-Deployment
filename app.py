@@ -76,8 +76,9 @@ if __name__ == '__main__':
     st.set_page_config(layout='wide')
     authenticator, name, authentication_status, username = login()
     # Handle authentication status
-    pag_layout(username)
+    
     if authentication_status:
+        pag_layout(username)
         authenticator.logout('Log out')
     elif authentication_status == False:
         st.error('Username or password is incorrect')
