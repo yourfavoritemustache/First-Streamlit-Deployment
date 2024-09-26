@@ -1,7 +1,7 @@
 import streamlit as st
 import streamlit_authenticator as stauth
 
-def pag_layout(username):
+def pag_layout(username,authentication_status):
     primary = st.Page(
         "pages/primary.py",
         title="Primary",
@@ -34,12 +34,15 @@ def pag_layout(username):
     public_pages = [public,login]
 
     page_dict = {}
-    if username == None:
-        page_dict["Public"] = public_pages
-    elif username == 'guest':
-        page_dict["Guest"] = guest_pages
+    if authentication_status:
+        if username == None:
+            page_dict["Public"] = public_pages
+        elif username == 'guest':
+            page_dict["Guest"] = guest_pages
+        else:
+            page_dict['Private'] = private_pages
     else:
-        page_dict['Admin'] = private_pages
+        page_dict["Public"] = public_pages
         
     pg = st.navigation(page_dict)
     pg.run()
@@ -90,12 +93,11 @@ if __name__ == '__main__':
     st.set_page_config(layout='wide')
     authenticator, name, authentication_status, username = login()
     # Handle authentication status
-    
-    if authentication_status:
-        pag_layout(username)
-        authenticator.logout('Log out','sidebar')
+    if authentication_status == None:
+        pag_layout(username,authentication_status)
     elif authentication_status == False:
+        pag_layout(username,authentication_status)
         st.error('Username or password is incorrect')
-    elif authentication_status == None:
-        st.warning('Please enter your username and password')
-
+    else:
+        pag_layout(username,authentication_status)
+        authenticator.logout('Log out','sidebar')
