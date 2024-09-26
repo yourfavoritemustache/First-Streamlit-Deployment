@@ -23,15 +23,10 @@ def pag_layout(username,authentication_status):
         title="public",
         icon=":material/person_add:",
     )
-    login = st.Page(
-        "pages/login.py",
-        title="login",
-        icon=":material/person_add:",
-    )
 
     private_pages = [primary,secondary,public]
     guest_pages = [third,public]
-    public_pages = [public,login]
+    public_pages = [public]
 
     page_dict = {}
     if authentication_status:
