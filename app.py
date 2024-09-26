@@ -82,12 +82,9 @@ def login():
         cookie_expiry_days=1
     )
     # Implement login widget
-    name, authentication_status, username = authenticator.login('main', 'Login')
+    name, authentication_status, username = authenticator.login('main')
     
     return authenticator, name, authentication_status, username
-
-def main():
-    st.title('Login page')
 
 if __name__ == '__main__':
     st.set_page_config(layout='wide')
