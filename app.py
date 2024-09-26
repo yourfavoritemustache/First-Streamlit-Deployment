@@ -86,6 +86,8 @@ def login():
 
 if __name__ == '__main__':
     st.set_page_config(layout='wide')
+    with st.sidebar:
+        st.write('For Guest access use "guest" for both username and passwords')
     authenticator, name, authentication_status, username = login()
     # Handle authentication status
     if authentication_status == None:
