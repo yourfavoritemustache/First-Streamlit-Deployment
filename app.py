@@ -22,5 +22,7 @@ if __name__ == '__main__':
         title="Login",
         icon=":material/person_add:",
     )
+    page_dict = {}
+    page_dict['Admin'] = login
     pg = st.navigation(login)
     pg.run()
