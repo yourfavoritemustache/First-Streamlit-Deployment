@@ -80,7 +80,7 @@ def login():
         cookie_expiry_days=1
     )
     # Implement login widget
-    name, authentication_status, username = authenticator.login('sidebar',fields={'Form name':'Log in: use "guest" for guest access'})
+    name, authentication_status, username = authenticator.login('sidebar')
     
     return authenticator, name, authentication_status, username
 
