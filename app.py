@@ -82,14 +82,12 @@ def login():
         cookie_expiry_days=1
     )
     # Implement login widget
-    name, authentication_status, username = authenticator.login('main',fields={'Form name':'', 'Username':'Username, use "guest" for guest access', 'Password':'Password, use "guest" for guest access'})
+    name, authentication_status, username = authenticator.login('main',fields={'Form name':'Log in: use "guest" for guest access'})
     
     return authenticator, name, authentication_status, username
 
 if __name__ == '__main__':
     st.set_page_config(layout='wide')
-    st.title('Welcome')
-    st.write('For Guest access use "guest" for username and password')
     authenticator, name, authentication_status, username = login()
     # Handle authentication status
     
