@@ -17,13 +17,20 @@ if __name__ == '__main__':
     st.set_page_config(layout='wide')
     st.title('Public page')
     st.write('explanation explanation explanation explanation explanation explanation explanation explanation explanation explanation explanation explanation')
+    
+    primary = st.Page(
+        "app.py",
+        title="Welcome",
+        icon=":material/person_add:",
+        default=True,
+    )
     login = st.Page(
         "pages/login.py",
         title="Login",
         icon=":material/person_add:",
     )
+    public = [primary,login]
     page_dict = {}
-    page_dict['Admin'] = login
-    login_pages = [login]
-    pg = st.navigation(login_pages)
+    page_dict['Admin'] = public
+    pg = st.navigation(public)
     pg.run()
