@@ -93,10 +93,10 @@ if __name__ == '__main__':
         with st.sidebar:
             st.write('For Guest access use "guest" for both username and passwords')
     elif authentication_status == False:
-        pag_layout(username,authentication_status)
         with st.sidebar:
             st.write('For Guest access use "guest" for both username and passwords')
             st.error('Username or password is incorrect')
+        pag_layout(username,authentication_status)
     else:
         pag_layout(username,authentication_status)
         authenticator.logout('Log out','sidebar')
