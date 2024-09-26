@@ -23,6 +23,11 @@ def pag_layout(username):
         title="public",
         icon=":material/person_add:",
     )
+    public = st.Page(
+        "pages/public.py",
+        title="public",
+        icon=":material/person_add:",
+    )
 
     private_pages = [primary,secondary,public]
     guest_pages = [third,public]
@@ -77,7 +82,7 @@ def login():
         cookie_expiry_days=1
     )
     # Implement login widget
-    name, authentication_status, username = authenticator.login('main', 'Login, for Guest access use "guest" for username and password')
+    name, authentication_status, username = authenticator.login('main', 'Login')
     
     return authenticator, name, authentication_status, username
 
