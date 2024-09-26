@@ -24,5 +24,6 @@ if __name__ == '__main__':
     )
     page_dict = {}
     page_dict['Admin'] = login
-    pg = st.navigation(login)
+    login_pages = [login]
+    pg = st.navigation(login_pages)
     pg.run()
