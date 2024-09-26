@@ -92,8 +92,8 @@ def main():
 
 if __name__ == '__main__':
     st.set_page_config(layout='wide')
-    username = None
-    pag_layout(username)
+    # username = None
+    # pag_layout(username)
     authenticator, name, authentication_status, username = login()
     # Handle authentication status
     
