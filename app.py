@@ -82,20 +82,20 @@ def login():
         cookie_expiry_days=1
     )
     # Implement login widget
-    name, authentication_status, username = authenticator.login('main')
+    name, authentication_status, username = authenticator.login('main',fields={'Form name':'', 'Username':'Username, use "guest" for guest access', 'Password':'Password, use "guest" for guest access'})
     
     return authenticator, name, authentication_status, username
 
 if __name__ == '__main__':
     st.set_page_config(layout='wide')
-    st.title('Login page')
+    st.title('Welcome')
     st.write('For Guest access use "guest" for username and password')
     authenticator, name, authentication_status, username = login()
     # Handle authentication status
     
     if authentication_status:
         pag_layout(username)
-        authenticator.logout('Log out')
+        authenticator.logout('Log out','sidebar')
     elif authentication_status == False:
         st.error('Username or password is incorrect')
     elif authentication_status == None:
