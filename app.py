@@ -99,7 +99,7 @@ if __name__ == '__main__':
     
     if authentication_status:
         pag_layout(username)
-        if st.sidebar.button('Logout'):
+        with st.sidebar.button('Logout'):
             authenticator.logout()
     elif authentication_status == False:
         st.error('Username or password is incorrect')
